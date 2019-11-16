@@ -1,3 +1,65 @@
 page-login {
 
-}
+    $text-input-placeholder-color	:white;
+  
+      .bg-image{
+        background-image: url('https://www.newhanover.co.za/wp-content/uploads/2015/05/Fotolia_83255773_Subscription_Monthly.jpg');
+        background-position: 0%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+      }
+      
+      .login-img{
+        padding-top: 13%;
+        width: 55%;
+        margin: auto;
+        display: block;
+      }
+  
+      .center{
+        text-align: center
+      }
+    
+      .input-login {
+        border: none !important;
+      }
+    
+      .item-inner {
+        border: none !important;
+      }
+    
+      .text-input {
+        margin-left: 10px;
+      }
+    
+      .input-wrapper {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+      }
+    
+      .text-right {
+        float: right;
+      }
+    
+    
+      .login {
+        height: 40px;
+        width: 100px;
+        margin-right: -7px;
+        border-radius: 5px;
+      }
+    
+      .item-md.item-input.item-input-has-focus .item-inner,
+      .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: none ;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    
+      .btn_login {
+        border-radius: 5px;
+      }
+    
+    }
+    

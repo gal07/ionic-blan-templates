@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ProcessProvider} from './../../providers/process/process';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+/**
+ * Generated class for the P1Page page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-p1',
+  templateUrl: 'p1.html',
+})
+export class P1Page {
+  template:any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public ProcessProvider: ProcessProvider,
+    public afauth: AngularFireAuth,
+  
+    ) {
+      
+    this.ProcessProvider.getPengumuman().subscribe(data =>{
+      console.log(data)
+      this.template = data
+    })
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad P1Page');
+  }
+
+}

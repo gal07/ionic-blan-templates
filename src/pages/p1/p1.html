@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pengumuman</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content Padding class="backimage">
+
+    <h2 text-center class="text"></h2>
+    <ion-card *ngFor="let item of template">
+      <ion-item>
+        <img src="{{item.url}}">
+        <h2 class = "left">{{item.title}}</h2>
+        
+      </ion-item>
+    
+    
+      <ion-card-content> 
+        <p class = "justify">{{item.Body}}</p>
+      </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

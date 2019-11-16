@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Hari Senin</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding class="backimage">
+      <h3 class="center"> Mata Pelajaran Dan Keterangan </h3>
+    <ion-list *ngFor="let item of template">
+      <ion-list>  
+      <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/jd1.png">
+          </ion-avatar>
+          <h2 color="dark">Mata Pelajaran</h2>
+          <p color="dark">{{item.mapel}}</p>
+          <ion-note item-end color="dark">{{item.waktu}}</ion-note>
+        </ion-item>
+        </ion-list>
+        
+</ion-list>
+</ion-content>

@@ -1,7 +1,20 @@
 <ion-tabs>
-  <ion-tab [root]="tab2Root" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="person"></ion-tab>
-
+  <div *ngIf="roles == 1">
+      <ion-tab [root]="tab2Root" tabIcon="home"></ion-tab>
+      <ion-tab [root]="tab3Root" tabIcon="book"></ion-tab>
+      <ion-tab [root]="tab4Root" tabIcon="clipboard"></ion-tab>
+      <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab>
+  </div>
+  <div *ngIf="roles == 2">
+      <ion-tab [root]="tab2Root" tabIcon="home"></ion-tab>
+      <ion-tab [root]="tab5Root" tabIcon="book"></ion-tab>
+      <ion-tab [root]="tab7Root" tabIcon="clipboard"></ion-tab>
+      <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab>
+  </div>
+  <div *ngIf="roles == 3">
+      <ion-tab [root]="tab2Root" tabIcon="home"></ion-tab>
+      <ion-tab [root]="tab5Root" tabIcon="book"></ion-tab>
+      <ion-tab [root]="tab7Root" tabIcon="clipboard"></ion-tab>
+      <ion-tab [root]="tab6Root" tabIcon="person"></ion-tab>
+  </div>
 </ion-tabs>

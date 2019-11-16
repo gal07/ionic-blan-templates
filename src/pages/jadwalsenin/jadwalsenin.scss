@@ -1,0 +1,24 @@
+page-jadwalsenin {
+
+    .backimage{
+        background-image: url( 'https://cla.umn.edu/sites/cla.umn.edu/files/booksonyellowbg-istock_000045605594_full_optimized.jpg');
+        background-position: 0%;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .pelajaran-page {
+        ion-note {
+          font-size: 12px;
+          align-self: flex-start;
+          margin-top: 14px;
+        }
+      }
+
+      .center{
+        font-size: 16px;
+        text-align: center;
+        padding: 10%;
+      }
+
+  }

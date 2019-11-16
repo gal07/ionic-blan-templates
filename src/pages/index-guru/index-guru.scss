@@ -1,0 +1,43 @@
+page-index-guru {
+
+  .card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+  
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: rgb(10, 10, 10);
+    }
+  
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+
+    .pelajaran-page {
+      ion-note {
+        font-size: 12px;
+        align-self: flex-start;
+        margin-top: 14px;
+      }
+    }
+  
+    .center{
+      font-size: 16px;
+      text-align: center;
+      padding: 10%;
+    }
+  
+  }
+
+}

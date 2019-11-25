@@ -9,7 +9,7 @@
     <h3 class="center"> Mata Pelajaran Dan Keterangan </h3>
   <ion-list *ngFor="let item of template">
   
-    <ion-list>  
+    <ion-list (click)="toList(item.mapel)">  
     <ion-item>
         <ion-avatar item-start>
           <img src="assets/imgs/jd1.png">

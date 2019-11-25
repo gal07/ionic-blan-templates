@@ -15,23 +15,26 @@
       <ion-icon item-end name="arrow-dropright-circle" (click)="goDetail(item.key)"></ion-icon>
     </ion-item>
   </ion-list> -->
+  
 
-  <ion-list>
+
+  <ion-list *ngFor="let item of template">
+      <button ion-button block color="blue">Form Absensi</button>
       <ion-item-sliding>
         <ion-item>
           <ion-avatar item-start>
               <img src='https://groundviews.org/wp-content/uploads/2015/06/Open-Book.jpg?w=640'/>
           </ion-avatar>
           <ion-icon name="arrow-dropleft" item-end></ion-icon>
-          <h2>Randi</h2>
+          <h2>{{item.nama}}</h2>
         <small></small>
         </ion-item>
         <ion-item-options side="right">
-          <button ion-button color="pallete-green" (click)="goNilai()">
+          <button ion-button color="pallete-green" (click)="goNilai(item.key)">
             <ion-icon name="create"></ion-icon>
             Nilai
           </button>
-          <button ion-button color="pallete-blue" (click)="showAbsen()" >
+          <button ion-button color="pallete-blue" (click)="showAbsen(item.nama,item.key,kodemapels)" >
             <ion-icon name="clipboard"></ion-icon>
             Absen
           </button>

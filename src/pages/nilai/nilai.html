@@ -8,32 +8,32 @@
 
     <ion-item>
       <ion-label stacked>H1</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="h1"></ion-input>
     </ion-item>
   
 
     <ion-item>
       <ion-label stacked>H2</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="h2"></ion-input>
     </ion-item>
     
     
     <ion-item>
       <ion-label stacked>H3</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="h3"></ion-input>
     </ion-item>
     
     
     <ion-item>
       <ion-label stacked>UTS</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="uts"></ion-input>
     </ion-item>
 
   <ion-item>
     <ion-label stacked>UAS</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="number" [(ngModel)]="uas"></ion-input>
   </ion-item>
 </ion-list>
-  <button ion-button full>SIMPAN</button>
+  <button ion-button full (click)="simpan()">SIMPAN</button>
   
 </ion-content>

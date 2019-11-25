@@ -1,3 +1,4 @@
+import { ProfilePage } from './../pages/profile/profile';
 import { ListSiswaPage } from './../pages/list-siswa/list-siswa';
 import { IndexSiswaPage } from './../pages/index-siswa/index-siswa';
 import { P1Page } from './../pages/p1/p1';
@@ -48,6 +49,8 @@ import { RegisterProvider } from '../providers/register/register';
 import { IndexGuruPage } from '../pages/index-guru/index-guru';
 import { JadwalPage } from '../pages/jadwal/jadwal';
 import { DetailPage } from '../pages/detail/detail';
+import { Profile2Page } from '../pages/profile2/profile2';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAJE9m71VzWlAFtNNWZPHGecUO6C3I1V4o",
@@ -95,7 +98,9 @@ export const firebaseConfig = {
     P1Page,
     IndexSiswaPage,
     DetailPage,
-    ListSiswaPage
+    ListSiswaPage,
+    ProfilePage,
+    Profile2Page,
   ],
   imports: [
     BrowserModule,
@@ -140,7 +145,9 @@ export const firebaseConfig = {
     P1Page,
     IndexSiswaPage,
     DetailPage,
-    ListSiswaPage
+    ListSiswaPage,
+    ProfilePage,
+    Profile2Page
   ],
   providers: [
     StatusBar,

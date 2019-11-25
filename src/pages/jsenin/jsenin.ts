@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ProcessProvider} from './../../providers/process/process';
+import { ListSiswaPage } from '../list-siswa/list-siswa';
 /**
  * Generated class for the JseninPage page.
  *
@@ -37,4 +38,7 @@ export class JseninPage {
     console.log('ionViewDidLoad JseninPage');
   }
 
+  toList(kode){
+    this.navCtrl.push(ListSiswaPage,{data:kode});
+  }
 }

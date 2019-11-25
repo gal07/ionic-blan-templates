@@ -1,3 +1,4 @@
+import { Data_siswa_running } from './../../model/data_siswa_running';
 import { SiswaRunning } from './../../model/siswa_running';
 import { Jadwal } from './../../model/jadwal';
 
@@ -65,6 +66,9 @@ export class ProcessProvider {
     private mapel_list : AngularFirestoreCollection<Mapel>;
     items_item_mapel: Observable<Mapel[]>;
   
+    private dataInterface : AngularFirestoreCollection<Data_siswa_running>;
+    items_dataInterface : Observable<Data_siswa_running[]>;
+
     /* Document */
     private siswa_running_detail: AngularFirestoreDocument<SiswaRunning>;
     doc_siswarunnin_detail: Observable<SiswaRunning>
@@ -297,8 +301,74 @@ getGuruUiD(){
       return this.items_item_mapel;
     }
 
-    /* get user */
 
+    /**
+   * 
+   * 
+   */
+    /* get siswa */
+
+    getNissiswa(){
+      this.dataInterface = this.afs.collection<Data_siswa_running>('data_siswa_running')
+      this.items_dataInterface = this.dataInterface.snapshotChanges().pipe(
+        map(changes=>
+          changes.map(c => ({key: c.payload.doc.id, ...c.payload.doc.data()}))
+          )
+      );
+      return this.items_dataInterface;
+    }
+
+    /**
+   * @param key
+   * 
+   */
+
+    /* update nilai siswa */
+    UpdateNilaiSiswa(key,nama,nilai){
+      var Updates = {}
+      Updates['mapel.'+nama+'.h1'] = nilai.h1;
+      Updates['mapel.'+nama+'.h2'] = nilai.h2;
+      Updates['mapel.'+nama+'.h3'] = nilai.h3;
+      Updates['mapel.'+nama+'.uts'] = nilai.uts;
+      Updates['mapel.'+nama+'.uas'] = nilai.uas;
+    
+    this.afs.collection('data_siswa_running').doc('/'+key).update(Updates).then(()=>{
+      alert('Nilai Telah Disimpan')     
+    }).catch(error=>{
+      alert(error)
+    });
+
+  }
+
+
+
+  /* update absen siswa */
+  absensiSiswa(data){
+    this.CreateLogAbsen(data.keylog,data.mapel,data.type,data.key)
+    let TIME_IN_MS = 1500;
+    let hideFooterTimeout = setTimeout( () => {
+      alert(data.nama+' '+data.type)
+          localStorage.removeItem('totAbsen');
+    }, TIME_IN_MS);
+    return false;
+    // let Updates = {};
+    // Updates['mapel.'+data.mapel+'.absensis.'+data.type] = Number(localStorage.getItem('totAbsen'));
+    // this.afs.collection('data_siswa_running').doc('/'+data.key).update(Updates).then(()=>{
+    //   alert(data.nama+' '+data.type)
+    // }).catch(error=>{
+    //   alert(error)
+    // })
+
+  }
+
+  CreateLogAbsen(keylog,mapel,type,key){
+    /* Create log */
+    let logs = {}
+    var b = keylog
+    logs['mapel.'+mapel+'.log_absen.'+b] = type;
+    this.afs.collection('data_siswa_running').doc('/'+key).update(logs)
+    localStorage.removeItem('totAbsen')
+  }
 
 
 }

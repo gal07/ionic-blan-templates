@@ -1,6 +1,7 @@
+import { LogPage } from './../log/log';
 import { Data_siswa_running } from './../../model/data_siswa_running';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import {ProcessProvider} from './../../providers/process/process';
 import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -33,6 +34,8 @@ export class NilaiPage {
   h3 = 0;
   uts = 0;
   uas = 0;
+  arrayslog = [];
+
 
 
   constructor(
@@ -40,6 +43,7 @@ export class NilaiPage {
     public navParams: NavParams,
     public ProcessProvider: ProcessProvider,
     private afs:AngularFirestore,
+    public modalCtrl: ModalController
     
     ) {
       this.getdataparams = this.navParams.get('data');
@@ -57,9 +61,21 @@ export class NilaiPage {
       this.uts = this.getdataValue.mapel[this.getdataparams.mapel].uts
       this.uas = this.getdataValue.mapel[this.getdataparams.mapel].uas
       console.log(this.getdataValue.mapel[this.getdataparams.mapel].h1)
+
+      /* Set For Absen */
+      for (const key in this.getdataValue.mapel[this.getdataparams.mapel].log_absen) {
+        this.arrayslog.push({tgl:key,absen:this.getdataValue.mapel[this.getdataparams.mapel].log_absen[key].toUpperCase()})
+      }
+
     })
 
   }
+
+  presentModal() {
+    const modal = this.modalCtrl.create(LogPage,{data:{dataabsen:this.arrayslog}});
+    modal.present();
+  }
+
 
   simpan(){
     let fin = {

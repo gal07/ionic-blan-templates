@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button postition="right">Lihat Absensi</button>
+  <button ion-button postition="right" (click)="presentModal()">Lihat Absensi</button>
     <ion-card>
         <ion-card-header>
           Nilai {{ title }}
@@ -44,6 +44,80 @@
           </button>
       
         </ion-list>
-      </ion-card>
+    </ion-card>
+    <br>
+
+    <ion-card>
+    <ion-card-header class="header-cardd">
+      Absensi
+    </ion-card-header>
+  
+    <ion-list>
+
+      <button ion-item>
+          <ion-icon color="secondary" name="checkmark-circle" item-start></ion-icon>
+          <ion-label class="font-items" fixed>Hadir</ion-label>
+          <ion-input class="font-items" type="text" [(ngModel)]="TypeAbsen.hadir.length" disabled></ion-input>
+      </button>
+
+      <button ion-item>
+        <ion-icon color="pallete-orange" name="alert" item-start></ion-icon>
+        <ion-label class="font-items" fixed>Izin</ion-label>
+        <ion-input class="font-items" type="text" [(ngModel)]="TypeAbsen.izin.length" disabled></ion-input>
+      </button>
+  
+      <button ion-item>
+        <ion-icon color="pallete-orange" name="medkit" item-start></ion-icon>
+        <ion-label class="font-items" fixed>Sakit</ion-label>
+        <ion-input class="font-items" type="text" [(ngModel)]="TypeAbsen.sakit.length" disabled></ion-input>
+      </button>
+  
+      <button ion-item>
+        <ion-icon color="danger" name="close" item-start></ion-icon>
+        <ion-label class="font-items" fixed>Alfa</ion-label>
+        <ion-input class="font-items" type="text" [(ngModel)]="TypeAbsen.alfa.length" disabled></ion-input><span> %</span>
+      </button>
+
+  
+    </ion-list>
+</ion-card>
+
+
+    <br>
+    <ion-card>
+      <ion-card-header>
+        Presentasi Nilai(%)
+      </ion-card-header>
+    
+      <ion-list>
+        <button ion-item>
+            <ion-label class="font-items" fixed>Absen</ion-label>
+            <ion-input class="font-items" type="text" [(ngModel)]="absens" disabled></ion-input>
+        </button>
+    
+        <button ion-item>
+            <ion-label class="font-items" fixed>Harian</ion-label>
+            <ion-input class="font-items" type="text" [(ngModel)]="harians" disabled></ion-input>
+        </button>
+    
+        <button ion-item>
+            <ion-label class="font-items" fixed>UTS</ion-label>
+            <ion-input class="font-items" type="text" [(ngModel)]="utsEnd" disabled></ion-input>
+        </button>
+    
+        <button ion-item>
+            <ion-label class="font-items" fixed>UAS</ion-label>
+            <ion-input class="font-items" type="text" [(ngModel)]="uasEnd" disabled></ion-input>
+        </button>
+    
+        <button ion-item>
+            <ion-label class="font-items" fixed>Total</ion-label>
+            <ion-input class="font-items" type="text" [(ngModel)]="TotalEnd" disabled></ion-input>
+        </button>
+    
+      </ion-list>
+  </ion-card>
+
+      
 
 </ion-content>

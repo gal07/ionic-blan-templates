@@ -1,3 +1,4 @@
+import { LogPage } from './../pages/log/log';
 import { ProfilePage } from './../pages/profile/profile';
 import { ListSiswaPage } from './../pages/list-siswa/list-siswa';
 import { IndexSiswaPage } from './../pages/index-siswa/index-siswa';
@@ -101,6 +102,7 @@ export const firebaseConfig = {
     ListSiswaPage,
     ProfilePage,
     Profile2Page,
+    LogPage
   ],
   imports: [
     BrowserModule,
@@ -147,7 +149,8 @@ export const firebaseConfig = {
     DetailPage,
     ListSiswaPage,
     ProfilePage,
-    Profile2Page
+    Profile2Page,
+    LogPage
   ],
   providers: [
     StatusBar,

@@ -344,9 +344,9 @@ getGuruUiD(){
 
   /* update absen siswa */
   absensiSiswa(data){
-    this.CreateLogAbsen(data.keylog,data.mapel,data.type,data.key)
     let TIME_IN_MS = 1500;
     let hideFooterTimeout = setTimeout( () => {
+      this.CreateLogAbsen(data.keylog,data.mapel,data.type,data.key)
       alert(data.nama+' '+data.type)
           localStorage.removeItem('totAbsen');
     }, TIME_IN_MS);

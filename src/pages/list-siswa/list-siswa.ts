@@ -8,7 +8,6 @@ import { AngularFirestore,AngularFirestoreDocument } from '@angular/fire/firesto
 import { Observable } from 'rxjs';
 import { Data_siswa_running } from './../../model/data_siswa_running';
 
-
 /**
  * Generated class for the ListSiswaPage page.
  *
@@ -92,14 +91,14 @@ export class ListSiswaPage {
     alert.setTitle('Apakah Siswa ini datang ke sekolah?');
 
     alert.addInput({
-      type: 'checkbox',
+      type: 'radio',
       label: 'Hadir',
       value: 'hadir',
       checked: true
     });
 
     alert.addInput({
-      type: 'checkbox',
+      type: 'radio',
       label: 'Sakit',
       value: 'sakit',
       checked: false
@@ -107,14 +106,14 @@ export class ListSiswaPage {
 
 
     alert.addInput({
-      type: 'checkbox',
+      type: 'radio',
       label: 'Izin',
       value: 'izin',
       checked: false
     });
 
     alert.addInput({
-      type: 'checkbox',
+      type: 'radio',
       label: 'Sakit',
       value: 'sakit',
       checked: false
@@ -134,7 +133,6 @@ export class ListSiswaPage {
         this.items_siswadetail = this.siswadetail.valueChanges();
         
         this.items_siswadetail.subscribe(datas=>{
-          // console.log(data)
           // console.log(datas.mapel[mapel].absensis[data])
         if(datas.mapel[mapel].absensis[data] === 0){
           totalPrevious = 1;
@@ -142,19 +140,18 @@ export class ListSiswaPage {
           totalPrevious = datas.mapel[mapel].absensis[data] +1;
         }
 
-        if (datas.mapel[mapel].log_absen[keysLog] != null) {
-          this.AlertShows();
-        }else{
+        if (!datas.mapel[mapel].log_absen[keysLog]) {
           localStorage.setItem('totAbsen',JSON.stringify(totalPrevious))
           let datass ={
-            "type":data[0],
+            "type":data,
             "key":key,
             "nama":nama,
             "mapel":mapel,
             "keylog":keysLog
           };
           this.process.absensiSiswa(datass)
-
+        }else{
+          this.AlertShows();
         }
 
    
